@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Defense Contract Tracker · Hampton Roads</title>
+  <meta name="description" content="Which Hampton Roads defense contracts come up for renewal in the next two years, who holds them, and where the money goes. Built on USAspending.gov.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2313263a'/%3E%3Ccircle cx='20' cy='17' r='6' fill='%232a78d6'/%3E%3Crect x='8' y='6' width='3' height='20' fill='%23ff6fb8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><b>Defense Contract Tracker</b><span>Hampton Roads, Virginia</span></a>
+    <nav aria-label="Sections">
+      <a href="#runway">Contracts ending</a>
+      <a href="#companies">Companies</a>
+      <a href="#money">Follow the money</a>
+      <a href="#calendar">Fiscal calendar</a>
+      <a href="#small">Small business</a>
+      <a href="#kits">Kit program</a>
+      <a href="#watch">Watchlist</a>
+      <a href="#about">About the data</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1 id="headline">Loading Hampton Roads defense contracts…</h1>
+      <p class="sub" id="subline"></p>
+      <p class="fresh" id="fresh"></p>
+    </div>
+  </section>
+
+  <section class="band" id="runway" aria-labelledby="runway-h" style="border-top:0; padding-top:12px">
+    <div class="wrap">
+      <div class="runway-box">
+        <h2 id="runway-h" class="visually-hidden">Contracts ending in the next two years</h2>
+        <div class="filters" role="group" aria-label="Filter contracts">
+          <span class="fl">Window
+            <span class="seg" id="f-window">
+              <button type="button" data-v="6" aria-pressed="false">6 months</button>
+              <button type="button" data-v="12" aria-pressed="false">1 year</button>
+              <button type="button" data-v="24" aria-pressed="true">2 years</button>
+            </span></span>
+          <label>Size
+            <select id="f-size">
+              <option value="0">Any size</option>
+              <option value="10000000">$10M and up</option>
+              <option value="100000000">$100M and up</option>
+              <option value="1000000000">$1B and up</option>
+            </select></label>
+          <label>Last time
+            <select id="f-comp">
+              <option value="">Competed or not</option>
+              <option value="competed">Competed</option>
+              <option value="sole">Not competed (one source)</option>
+              <option value="setaside">Small-business set-aside</option>
+            </select></label>
+          <label><span class="visually-hidden">Search</span>
+            <input type="search" id="f-q" placeholder="Search company or work" autocomplete="off"></label>
+        </div>
+        <div class="legend" id="branch-chips" role="group" aria-label="Branches"></div>
+        <div id="strip" aria-hidden="true"></div>
+        <div class="strip-key">
+          <span>Each circle is one contract, placed at the month it reaches its final end date (all options used), sized by dollars obligated so far.</span>
+          <span class="sizekey" id="sizekey"></span>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table id="runway-table" aria-describedby="table-note">
+          <caption class="visually-hidden">Contracts ending soon</caption>
+          <thead><tr>
+            <th scope="col"><button type="button" data-sort="final_end" aria-sort="ascending">Final end</button></th>
+            <th scope="col">Company and work</th>
+            <th scope="col" class="hide-sm">Buyer</th>
+            <th scope="col" class="r"><button type="button" data-sort="amount">Obligated</button></th>
+            <th scope="col" class="hide-sm">Last time</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="more"><button class="btn" type="button" id="more">Show 25 more</button><span class="muted small" id="table-note"></span></div>
+    </div>
+  </section>
+
+  <section class="band" id="changes" aria-labelledby="changes-h">
+    <div class="wrap cols">
+      <div class="c5">
+        <h2 id="changes-h">What changed</h2>
+        <p class="intro">USAspending only shows each contract as it stands today. Comparing every daily download with
+          the last one is how this page knows a contract was extended or grew.</p>
+      </div>
+      <div class="c7"><ul class="feed" id="feed"></ul></div>
+    </div>
+  </section>
+
+  <section class="band" id="companies" aria-labelledby="companies-h">
+    <div class="wrap">
+      <h2 id="companies-h">Who holds the work</h2>
+      <p class="intro">Companies with contracts performed in Hampton Roads, with subsidiaries rolled up to their parent
+        company. Select one for its full profile.</p>
+      <div class="keyline"><span><i class="end"></i>Share of the company's Hampton Roads contract dollars ending in the next two years</span><span><i></i>The rest</span></div>
+      <div class="co-list" id="co-list"></div>
+    </div>
+  </section>
+
+  <section class="band" id="money" aria-labelledby="money-h">
+    <div class="wrap">
+      <h2 id="money-h">Follow the money</h2>
+      <p class="intro" id="flow-intro">From the military branch that buys, to the kind of work, to the company that does it.</p>
+      <div id="flow" class="chart"></div>
+    </div>
+  </section>
+
+  <section class="band" id="calendar" aria-labelledby="cal-h">
+    <div class="wrap cols">
+      <div class="c4">
+        <h2 id="cal-h">The fiscal calendar</h2>
+        <p class="callout" id="sep-callout"></p>
+        <p class="intro">The federal year starts October 1. Money that isn't committed by September 30 can be lost, so
+          contracting offices rush to sign in the last month. Each square is one month of Hampton Roads defense contract
+          obligations.</p>
+      </div>
+      <div class="c8">
+        <div class="cal" id="cal" role="table" aria-label="Monthly obligations by fiscal year"></div>
+        <div class="ramp" id="cal-ramp"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="small" aria-labelledby="small-h">
+    <div class="wrap">
+      <h2 id="small-h">Small business</h2>
+      <p class="intro" id="small-intro"></p>
+      <div class="cols">
+        <div class="c5 panel">
+          <h3>Small businesses' share of the region's contract dollars</h3>
+          <p>By fiscal year. The newest year is still filling in.</p>
+          <div id="sb-share" class="chart"></div>
+        </div>
+        <div class="c7 panel">
+          <h3>Largest small-business contractors</h3>
+          <p id="sb-fy"></p>
+          <div id="sb-top"></div>
+        </div>
+      </div>
+      <div class="cols" style="margin-top:28px">
+        <div class="c6 panel">
+          <h3>How the ending contracts were awarded</h3>
+          <p>Contracts ending in the next two years whose award page has been read.</p>
+          <div id="competition"></div>
+        </div>
+        <div class="c6 panel">
+          <h3>Set-asides among them</h3>
+          <p>Contracts reserved for small or disadvantaged businesses the last time they were bid.</p>
+          <div id="setasides"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="kits" aria-labelledby="kits-h">
+    <div class="wrap">
+      <h2 id="kits-h">The kit program</h2>
+      <p class="intro">The Defense Logistics Agency buys special operational equipment (tactical gear, diving equipment,
+        medical kits and thousands of other items) through a few long-term contracts. The prime contractors don't make
+        most of it. They find it, bundle it into kits and ship it, buying from a network of smaller suppliers, which makes
+        it a sales-and-logistics business as much as a manufacturing one. Nationwide figures.</p>
+      <div class="big3" id="kit-stats"></div>
+      <div class="cols">
+        <div class="c5 panel"><h3>Who holds the program</h3><p>Obligated on each company's orders since its master contract began.</p><div id="kit-holders"></div></div>
+        <div class="c7 panel"><h3>Largest orders</h3><p>Single orders placed under the program, largest first.</p><ul class="mini" id="kit-orders"></ul></div>
+        <div class="c12 panel"><h3>Suppliers behind the primes</h3><p id="kit-sup-note">Subcontracts the primes reported on their largest orders.</p>
+          <div class="tbl-wrap"><table id="kit-suppliers"></table></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="watch" aria-labelledby="watch-h">
+    <div class="wrap">
+      <h2 id="watch-h">Watchlist</h2>
+      <p class="intro">Companies followed across every Defense Department contract, not only Hampton Roads. Add or
+        remove companies on the admin page.</p>
+      <div class="watch" id="watchlist"></div>
+    </div>
+  </section>
+
+  <section class="band" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h">About the data</h2>
+      <div class="about">
+        <p><b>Source.</b> Every number comes from <a href="https://www.usaspending.gov">USAspending.gov</a>, the federal
+          government's official record of contract spending. "Hampton Roads" means work performed in Chesapeake, Hampton,
+          Newport News, Norfolk, Poquoson, Portsmouth, Suffolk, Virginia Beach, Williamsburg and the counties of Gloucester,
+          Isle of Wight, James City, Mathews and York.</p>
+        <p><b>Obligated, not paid.</b> An obligation is a legal promise to pay. It's the standard measure of contract
+          spending, but money is paid out over time, sometimes years later.</p>
+        <p><b>The 90-day delay.</b> The Defense Department publishes contract actions about 90 days after they're signed,
+          so the newest months look smaller than they will be, and a contract that seems to be ending may already have been
+          extended. Months that are still filling in are marked.</p>
+        <p><b>Final end date.</b> Many contracts have options the government can exercise to extend them. The runway uses
+          the last date a contract could run with every option exercised, read from each contract's own page. Until that
+          page has been read, the current end date is used.</p>
+        <p><b>Contracts of $1 million and up</b> are tracked one by one (the threshold is a setting). Smaller orders, of
+          which there are many thousands, still count in every total and breakdown.</p>
+        <p><b>Companies</b> are grouped by parent company when USAspending lists one, and by name otherwise. This is an
+          educational project and not an official source for bid decisions.</p>
+        <p class="muted" id="run-info"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Built by Harper Cox with Python, PostgreSQL and Flask.</span>
+    <span>Data: USAspending.gov.</span>
+    {% if portfolio_url %}<a href="{{ portfolio_url }}">More projects by Harper Cox</a>{% endif %}
+    {% if source_url %}<a href="{{ source_url }}">Source code</a>{% endif %}
+    <a href="/admin">Admin</a>
+  </div>
+</footer>
+
+<dialog class="drawer" id="drawer" aria-labelledby="d-title"><div class="d-inner" id="d-inner"></div></dialog>
+<div id="tip" role="tooltip" hidden></div>
+<script src="{{ url_for('static', filename='viz.js') }}"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

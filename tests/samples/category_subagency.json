@@ -1,0 +1,62 @@
+{
+ "category": "awarding_subagency",
+ "spending_level": "transactions",
+ "limit": 15,
+ "page_metadata": {
+  "page": 1,
+  "next": 2,
+  "previous": null,
+  "hasNext": true,
+  "hasPrevious": false
+ },
+ "results": [
+  {
+   "id": 1174,
+   "code": "USN",
+   "name": "Department of the Navy",
+   "agency_id": 126,
+   "agency_abbreviation": "DOD",
+   "agency_name": "Department of Defense",
+   "agency_slug": "department-of-defense",
+   "subagency_slug": "department-of-the-navy",
+   "amount": 15740591624.26,
+   "total_outlays": null
+  },
+  {
+   "id": 1219,
+   "code": "DLA",
+   "name": "Defense Logistics Agency",
+   "agency_id": 126,
+   "agency_abbreviation": "DOD",
+   "agency_name": "Department of Defense",
+   "agency_slug": "department-of-defense",
+   "subagency_slug": "defense-logistics-agency",
+   "amount": 10795596420.2,
+   "total_outlays": null
+  },
+  {
+   "id": 1196,
+   "code": "USAF",
+   "name": "Department of the Air Force",
+   "agency_id": 126,
+   "agency_abbreviation": "DOD",
+   "agency_name": "Department of Defense",
+   "agency_slug": "department-of-defense",
+   "subagency_slug": "department-of-the-air-force",
+   "amount": 1565222144.44,
+   "total_outlays": null
+  },
+  {
+   "id": 1188,
+   "code": "USA",
+   "name": "Department of the Army",
+   "agency_id": 126,
+   "agency_abbreviation": "DOD",
+   "agency_name": "Department of Defense",
+   "agency_slug": "department-of-defense",
+   "subagency_slug": "department-of-the-army",
+   "amount": 1039442060.85,
+   "total_outlays": null
+  }
+ ]
+}

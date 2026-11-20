@@ -1,0 +1,120 @@
+{
+ "group": "fiscal_year",
+ "results": [
+  {
+   "aggregated_amount": 5624448675.38,
+   "time_period": {
+    "fiscal_year": "2022"
+   },
+   "Contract_Obligations": 5624448675.38,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  },
+  {
+   "aggregated_amount": 7269187184.79,
+   "time_period": {
+    "fiscal_year": "2023"
+   },
+   "Contract_Obligations": 7269187184.79,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  },
+  {
+   "aggregated_amount": 7713259363.32,
+   "time_period": {
+    "fiscal_year": "2024"
+   },
+   "Contract_Obligations": 7713259363.32,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  },
+  {
+   "aggregated_amount": 8839859029.61,
+   "time_period": {
+    "fiscal_year": "2025"
+   },
+   "Contract_Obligations": 8839859029.61,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  },
+  {
+   "aggregated_amount": 7000312481.76,
+   "time_period": {
+    "fiscal_year": "2026"
+   },
+   "Contract_Obligations": 7000312481.76,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  },
+  {
+   "aggregated_amount": 0,
+   "time_period": {
+    "fiscal_year": "2027"
+   },
+   "Contract_Obligations": 0,
+   "Direct_Obligations": 0,
+   "Grant_Obligations": 0,
+   "Idv_Obligations": 0,
+   "Loan_Obligations": 0,
+   "Other_Obligations": 0,
+   "total_outlays": null,
+   "Contract_Outlays": null,
+   "Direct_Outlays": null,
+   "Grant_Outlays": null,
+   "Idv_Outlays": null,
+   "Loan_Outlays": null,
+   "Other_Outlays": null
+  }
+ ],
+ "spending_level": "transactions"
+}

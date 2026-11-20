@@ -1,0 +1,37 @@
+# Alternative to setup_ubuntu.sh:  docker compose up -d   then open http://localhost:8001
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: defense_tracker
+      POSTGRES_USER: defense
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-defense}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+
+  web:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://defense:${DB_PASSWORD:-defense}@db:5432/defense_tracker
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      PORTFOLIO_URL: ${PORTFOLIO_URL:-}
+      SOURCE_URL: ${SOURCE_URL:-}
+    ports:
+      - "8001:8001"
+    depends_on: [db]
+    restart: unless-stopped
+
+  scheduler:
+    build: .
+    command: ["python", "-m", "app.scheduler"]
+    environment:
+      DATABASE_URL: postgresql://defense:${DB_PASSWORD:-defense}@db:5432/defense_tracker
+      SCHEDULE_AT: ${SCHEDULE_AT:-06:40}
+      TZ: America/New_York
+    depends_on: [db]
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,0 +1,45 @@
+{
+ "spending_level": "awards",
+ "limit": 100,
+ "results": [
+  {
+   "internal_id": 341251123,
+   "Award ID": "SPE8EL25F11FF",
+   "Recipient Name": "ATLANTIC DIVING SUPPLY, INC.",
+   "Award Amount": 24020089.0,
+   "Start Date": "2024-12-30",
+   "End Date": "2027-02-04",
+   "Awarding Sub Agency": "Defense Logistics Agency",
+   "generated_internal_id": "CONT_AWD_SPE8EL25F11FF_9700_SPE8EJ21D1020_9700",
+   "Last Modified Date": "2026-11-17 12:41:08"
+  },
+  {
+   "internal_id": 341215355,
+   "Award ID": "SPE8EL21F13SL",
+   "Recipient Name": "ATLANTIC DIVING SUPPLY, INC.",
+   "Award Amount": 17377627.35,
+   "Start Date": "2021-07-30",
+   "End Date": "2023-01-04",
+   "Awarding Sub Agency": "Defense Logistics Agency",
+   "generated_internal_id": "CONT_AWD_SPE8EL21F13SL_9700_SPE8EJ21D1020_9700",
+   "Last Modified Date": "2026-11-17 09:41:04"
+  },
+  {
+   "internal_id": 341220479,
+   "Award ID": "SPE8EL22F100U",
+   "Recipient Name": "ATLANTIC DIVING SUPPLY, INC.",
+   "Award Amount": 13773560.71,
+   "Start Date": "2021-10-22",
+   "End Date": "2022-01-04",
+   "Awarding Sub Agency": "Defense Logistics Agency",
+   "generated_internal_id": "CONT_AWD_SPE8EL22F100U_9700_SPE8EJ21D1020_9700",
+   "Last Modified Date": "2026-11-17 09:40:58"
+  }
+ ],
+ "page_metadata": {
+  "page": 1,
+  "hasNext": true,
+  "last_record_unique_id": 363434958,
+  "last_record_sort_value": "31250000"
+ }
+}

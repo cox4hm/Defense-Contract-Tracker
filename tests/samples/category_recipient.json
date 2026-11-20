@@ -1,0 +1,46 @@
+{
+ "category": "recipient",
+ "spending_level": "transactions",
+ "limit": 25,
+ "page_metadata": {
+  "page": 1,
+  "next": 2,
+  "previous": null,
+  "hasNext": true,
+  "hasPrevious": false
+ },
+ "results": [
+  {
+   "amount": 10301975627.25,
+   "recipient_id": "9c708c7c-f339-5fc8-0455-a5aaea1d2da5-C",
+   "name": "ATLANTIC DIVING SUPPLY, INC.",
+   "code": "027079776",
+   "uei": "GJMSFBCNMSK3",
+   "total_outlays": null
+  },
+  {
+   "amount": 6736627769.74,
+   "recipient_id": "dde47d6b-a165-dbed-d5bd-a6e55ca6e591-C",
+   "name": "HUNTINGTON INGALLS INC",
+   "code": "001307495",
+   "uei": "WMXDDH6HJNA5",
+   "total_outlays": null
+  },
+  {
+   "amount": 805400427.63,
+   "recipient_id": "54212f12-7156-e472-c7d9-9cfbdedf007e-C",
+   "name": "METRO MACHINE CORP.",
+   "code": "057917536",
+   "uei": "J1FCJLK5LGU5",
+   "total_outlays": null
+  },
+  {
+   "amount": 636832681.28,
+   "recipient_id": "881cc7b1-1565-b245-1554-a9edc55a5f45-C",
+   "name": "BAE SYSTEMS MARITIME SOLUTIONS NORFOLK INC.",
+   "code": "003175072",
+   "uei": "ERMDZBE4J8Q9",
+   "total_outlays": null
+  }
+ ]
+}

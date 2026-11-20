@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin · Defense Contract Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .admin { max-width: 900px; padding: 32px 28px 80px; margin: 0 auto; }
+    .admin section { padding: 28px 0; border-top: 1px solid var(--line); }
+    .admin label { display: block; margin: 14px 0 4px; font-size: .92rem; }
+    .admin input[type=text] { width: 100%; border: 1px solid var(--line); background: var(--surface); border-radius: 7px; padding: 7px 10px; }
+    .admin form.inline { display: inline; }
+    .admin .row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; }
+    .status-failed { color: #c0392b; font-weight: 600; }
+    .status-partial { color: #b7791f; font-weight: 600; }
+  </style>
+</head>
+<body>
+<main class="admin">
+  <p><a href="/">← Back to the dashboard</a></p>
+  <h2>Admin</h2>
+  {% if pending %}<p class="muted">{{ pending }} contract pages are still waiting to be read. They're read in the background after each update.</p>{% endif %}
+
+  <section>
+    <h3>Watchlist</h3>
+    <table>
+      <thead><tr><th>Company</th><th>Searched as</th><th class="r">DoD contracts</th><th></th></tr></thead>
+      <tbody>
+      {% for c in companies %}
+        <tr><td>{{ c.display_name }}{% if c.note %}<br><span class="muted small">{{ c.note }}</span>{% endif %}</td>
+          <td><code>{{ c.search_text }}</code></td>
+          <td class="r">{{ c.award_count if c.award_count is not none else 'not checked' }}</td>
+          <td><form method="post" action="/admin/company/{{ c.id }}/delete" class="inline">
+            <button class="btn" type="submit">Remove</button></form></td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <form method="post" action="/admin/company">
+      <div class="row">
+        <div><label for="dn">Name to show</label><input type="text" id="dn" name="display_name" required></div>
+        <div><label for="st">Company name or 12-character UEI</label><input type="text" id="st" name="search_text" required></div>
+        <div><label for="nt">Note (optional)</label><input type="text" id="nt" name="note"></div>
+        <button class="btn primary" type="submit">Add company</button>
+      </div>
+      <p class="muted small">A UEI avoids look-alike names. Find it on SAM.gov or a company's USAspending page. The next update fills in its contracts.</p>
+    </form>
+  </section>
+
+  <section>
+    <h3>Settings</h3>
+    <form method="post" action="/admin/settings">
+      {% for s in settings %}
+        <label for="s-{{ s.key }}"><strong>{{ s.key }}</strong>: <span class="muted">{{ s.description }}</span></label>
+        <input type="text" id="s-{{ s.key }}" name="setting:{{ s.key }}" value="{{ s.value }}">
+      {% endfor %}
+      <p><button class="btn primary" type="submit">Save settings</button></p>
+    </form>
+  </section>
+
+  <section>
+    <h3>Hampton Roads localities</h3>
+    <table>
+      {% for l in localities %}
+        <tr><td>{{ l.name }} <span class="muted small">{{ l.kind }} · FIPS {{ l.fips5 }}</span></td>
+          <td><form method="post" action="/admin/locality/{{ l.fips5 }}/toggle" class="inline">
+            <button class="btn" type="submit">{{ 'Included' if l.active else 'Excluded' }}</button></form></td></tr>
+      {% endfor %}
+    </table>
+  </section>
+
+  <section>
+    <h3>Recent updates</h3>
+    <table>
+      <thead><tr><th>#</th><th>Started</th><th>Kind</th><th>Source</th><th>Status</th><th class="r">Rows</th></tr></thead>
+      <tbody>
+      {% for r in runs %}
+        <tr><td>{{ r.id }}</td><td>{{ r.started_at.strftime('%Y-%m-%d %H:%M') if r.started_at.strftime is defined else r.started_at }}</td>
+          <td>{{ r.mode or '' }}</td><td>{{ r.source }}</td><td class="status-{{ r.status }}">{{ r.status }}</td><td class="r">{{ r.rows_written }}</td></tr>
+        {% if r.message %}<tr><td></td><td colspan="5" class="muted small">{{ r.message }}</td></tr>{% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <form method="post" action="/admin/logout"><button class="btn" type="submit">Log out</button></form>
+</main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the Defense Contract Tracker loader every morning
+
+[Timer]
+# USAspending refreshes overnight. Run once each morning (US Eastern).
+OnCalendar=*-*-* 06:40:00 America/New_York
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

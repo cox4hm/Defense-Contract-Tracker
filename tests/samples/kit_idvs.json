@@ -1,0 +1,89 @@
+{
+ "spending_level": "awards",
+ "limit": 50,
+ "results": [
+  {
+   "internal_id": 351614516,
+   "Award ID": "SPE8EJ21D1028",
+   "Recipient Name": "NOBLE SUPPLY & LOGISTICS, LLC",
+   "Award Amount": 0.0,
+   "Description": "4600081185!OPERATIONAL  EQUIPMENT  IST - FCCB",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D1028_9700"
+  },
+  {
+   "internal_id": 351614510,
+   "Award ID": "SPE8EJ21D1022",
+   "Recipient Name": "NOBLE SUPPLY & LOGISTICS, LLC",
+   "Award Amount": 0.0,
+   "Description": "4600081184!OPERATIONAL  EQUIPMENT  IST - FCCB",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D1022_9700"
+  },
+  {
+   "internal_id": 351614492,
+   "Award ID": "SPE8EJ21D0028",
+   "Recipient Name": "NOBLE SUPPLY & LOGISTICS, LLC",
+   "Award Amount": 0.0,
+   "Description": "4600081183!OPERATIONAL  EQUIPMENT  IST - FCCB",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D0028_9700"
+  },
+  {
+   "internal_id": 351614489,
+   "Award ID": "SPE8EJ21D0025",
+   "Recipient Name": "W S DARLEY & CO",
+   "Award Amount": 0.0,
+   "Description": "4610066086!OPERATIONAL  EQUIPMENT  IST -",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D0025_9700"
+  },
+  {
+   "internal_id": 351614487,
+   "Award ID": "SPE8EJ21D0023",
+   "Recipient Name": "SUPPLYCORE LLC",
+   "Award Amount": 0.0,
+   "Description": "4610066084!OPERATIONAL  EQUIPMENT  IST -",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D0023_9700"
+  },
+  {
+   "internal_id": 351614486,
+   "Award ID": "SPE8EJ21D0022",
+   "Recipient Name": "NOBLE SUPPLY & LOGISTICS, LLC",
+   "Award Amount": 0.0,
+   "Description": "4610066083!OPERATIONAL  EQUIPMENT  IST -",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D0022_9700"
+  },
+  {
+   "internal_id": 351614484,
+   "Award ID": "SPE8EJ21D0020",
+   "Recipient Name": "ATLANTIC DIVING SUPPLY, INC.",
+   "Award Amount": 0.0,
+   "Description": "4610066081!OPERATIONAL  EQUIPMENT  IST -",
+   "Start Date": "2021-01-05",
+   "End Date": null,
+   "Last Date to Order": "2031-01-04",
+   "generated_internal_id": "CONT_IDV_SPE8EJ21D0020_9700"
+  }
+ ],
+ "page_metadata": {
+  "page": 1,
+  "hasNext": false,
+  "last_record_unique_id": null,
+  "last_record_sort_value": "None"
+ }
+}

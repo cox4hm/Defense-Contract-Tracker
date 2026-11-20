@@ -1,0 +1,2 @@
+# Alternative to the systemd timer. Install with: crontab -e   (fix the path)
+40 6 * * *  cd /home/YOU/defense-contract-tracker && set -a && . ./.env && set +a && .venv/bin/python -m app.loader --source cron >> logs/loader.log 2>&1

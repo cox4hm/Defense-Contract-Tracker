@@ -1,0 +1,13 @@
+[Unit]
+Description=Defense Contract Tracker: web dashboard (gunicorn)
+After=network.target postgresql.service
+
+[Service]
+User=__USER__
+WorkingDirectory=__APP_DIR__
+EnvironmentFile=__APP_DIR__/.env
+ExecStart=/bin/sh -c 'exec __APP_DIR__/.venv/bin/gunicorn --workers 2 --bind 0.0.0.0:${PORT:-8001} "app.web:create_app()"'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
